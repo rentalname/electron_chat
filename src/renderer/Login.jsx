@@ -57,17 +57,19 @@ export default class Login extends React.Component {
     }
 
     firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+      console.log('ログイン: 成功');
       localStorage.userEmail = email;
       localStorage.userPassword = password;
       history.push('/rooms');
     }).catch(() => {
+      console.log('ログイン: 失敗');
       this.setState({ errors: ['Incorrect email or password'] });
     });
   }
 
   render() {
     return (
-      <form action="" style={FORM_STYLE} onSubmit={this.handleOnSubmit}>
+      <form style={FORM_STYLE} onSubmit={this.handleOnSubmit}>
         <Errors errorMessages={this.state.errors} />
         <div className="form-group">
           <label>Email address</label>

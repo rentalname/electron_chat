@@ -71,19 +71,21 @@ export default class Signup extends React.Component {
     }
 
     firebase.auth().createUserWithEmailAndPassword(email, password).then((newUser) => {
-      newUser.updateProfile({ displayName: name, photoURL });
+      console.log('サインアップ: 成功A');
+      return newUser.updateProfile({ displayName: name, photoURL });
     }).then(() => {
+      console.log('サインアップ: 成功B');
       history.push('/rooms');
     }).catch((err) => {
-      this.setState({
-        errors: [err.message],
-      });
+      console.log('サインアップ: 失敗');
+      console.log(err);
+      this.setState({ errors: [err.message] });
     });
   }
 
   render() {
     return (
-      <form action="" style={SIGNUP_FORM_STYLE} onSubmit={this.handleOnSubmit}>
+      <form style={SIGNUP_FORM_STYLE} onSubmit={this.handleOnSubmit}>
         <Errors errorMessages={this.state.errors} />
         <div className="form-group">
           <label htmlFor="">Email address*</label>

@@ -8,7 +8,9 @@ import Room from './Room';
 
 import createHistory from 'history/createBrowserHistory';
 import firebase from 'firebase/firebase-browser';
+import Config from './Config';
 
+const firebaseConfig = Config.firebase;
 const history = createHistory();
 const location = history.location;
 
@@ -23,20 +25,7 @@ const appRouting = (
     </Switch>
   </BrowserRouter>
 );
-console.log(`A:${history}`);
-if (!location.hash.length) {
-  console.log(`B:${history}`);
-  history.push('/login');
-}
 
-const config = {
-  apiKey: 'AIzaSyAp1-tXSIZPV_A4JW75kXRslcT4B_TFves',
-  authDomain: 'electron-chat-6a535.firebaseapp.com',
-  databaseURL: 'https://electron-chat-6a535.firebaseio.com',
-  projectId: 'electron-chat-6a535',
-  storageBucket: 'electron-chat-6a535.appspot.com',
-  messagingSenderId: '982404448054',
-};
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 
 render(appRouting, document.getElementById('app'));

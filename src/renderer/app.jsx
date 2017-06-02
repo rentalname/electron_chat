@@ -20,7 +20,7 @@ const appRouting = (
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/rooms" component={Rooms} />
-      <Route exact path="/rooms/:roomId" component={Room} />
+      <Route exact path="/rooms/:roomId" component={Rooms} />
       <Redirect to="/login" />
     </Switch>
   </BrowserRouter>

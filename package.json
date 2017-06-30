@@ -11,7 +11,8 @@
     "copy:resources": "cpx \"prod_resources/**/*\" dist",
     "copy:photon": "cpx \"node_modules/photon/dist/css/**/*\" dist/css && cpx \"node_modules/photon/dist/fonts/**/*\" dist/fonts",
     "prebundle": "npm run copy:resources && npm run copy:photon",
-    "bundle": "webpack"
+    "bundle": "webpack",
+    "package": "npm run bundle && electron-packager dist \"Electron Chat\" --all --out=release --icon=\"icon/icon\""
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +32,7 @@
     "babel-preset-react": "^6.24.1",
     "cpx": "^1.5.0",
     "electron-load-devtool": "^0.5.1",
+    "electron-packager": "^8.7.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.3.0",

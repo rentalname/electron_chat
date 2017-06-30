@@ -42,7 +42,8 @@
     "copy:photon": "cpx \"node_modules/photon/dist/css/**/*\" dist/css && cpx \"node_modules/photon/dist/fonts/**/*\" dist/fonts",
     "prebundle": "npm run copy:resources && npm run copy:photon",
     "bundle": "webpack",
-    "package": "npm run bundle && electron-packager dist \"Electron Chat\" --all --out=release --icon=\"icon/icon\""
+    "package": "npm run bundle && electron-packager dist \"Electron Chat\" --all --out=release --icon=\"icon/icon\"",
+    "release": "npm run copy:resources && npm run copy:photon && build --publish always"
   },
   "author": "",
   "license": "ISC",

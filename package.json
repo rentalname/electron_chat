@@ -8,7 +8,7 @@
     "watch": "babel --watch --out-dir .tmp src",
     "prestart": "babel --out-dir .tmp src",
     "start": "electron .",
-    "copy:resources": "cpx \"product_resources/**/*\" dist",
+    "copy:resources": "cpx \"prod_resources/**/*\" dist",
     "copy:photon": "cpx \"node_modules/photon/dist/css/**/*\" dist/css && cpx \"node_modules/photon/dist/fonts/**/*\" dist/fonts",
     "prebundle": "npm run copy:resources && npm run copy:photon",
     "bundle": "webpack"
